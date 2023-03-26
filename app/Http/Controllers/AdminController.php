@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class AdminController extends Controller
 {
@@ -17,7 +19,7 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
 
         $notification = array(
-            'message' => 'Login Successfully',
+            'message' => 'Logout Successfully',
             'alert-type' => 'success'
         );
 
@@ -57,6 +59,40 @@ class AdminController extends Controller
             'alert-type' => 'success'
         );
 
+        return redirect()->back()->with($notification);
+    }
+
+    public function changePassword()
+    {
+
+        return view('admin.admin_change_password');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $password = Auth::user()->password;
+        $request->validate([
+            'current_password' => ['required', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $checkedPassword = Hash::check($request->current_password, $password);
+
+        if ($checkedPassword) {
+            $getAdminById = User::find(Auth::id());
+            $getAdminById->password = Hash::make($request->password);
+            $getAdminById->save();
+
+            $notification = array(
+                'message' => 'Updated Password Successfully.',
+                'alert-type' => 'success'
+            );
+        } else {
+            $notification = array(
+                'message' => 'Current Password dose not match.',
+                'alert-type' => 'error'
+            );
+        }
         return redirect()->back()->with($notification);
     }
 }

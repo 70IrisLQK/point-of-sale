@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
-use App\Models\About;
+use App\Models\MultiImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class AboutController extends Controller
+class MultiImagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,9 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $listAbout = About::latest('id')->get();
-        return view('admin.about.list_about', compact('listAbout'));
+        $listMultiImages = MultiImages::latest('id')->get();
+
+        return view('admin.about.images.list_images', compact('listMultiImages'));
     }
 
     /**
@@ -59,9 +60,9 @@ class AboutController extends Controller
      */
     public function edit($id)
     {
-        $getAboutById = About::where('id', $id)->first();
+        $getImageById = MultiImages::where('id', $id)->first();
 
-        return view('admin.about.edit_about', compact('getAboutById'));
+        return view('admin.about.images.edit_images', compact('getImageById'));
     }
 
     /**
@@ -74,10 +75,6 @@ class AboutController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => ['required', 'max:255'],
-            'short_title' => ['required', 'max:255'],
-            'short_description' => ['required'],
-            'long_description' => ['required'],
             'about_image' => ['required', 'image', 'mimes:png,jpq,gif,jpeg'],
         ]);
 
@@ -85,19 +82,15 @@ class AboutController extends Controller
             $image = $request->file('about_image');
             $pathName = Str::uuid() . '.' . $image->getClientOriginalExtension();
             $path = 'upload/admin_images/';
-            Image::make($image)->resize(523, 605)->save($path . $pathName);
+            Image::make($image)->resize(171, 170)->save($path . $pathName);
         }
 
-        About::updateOrCreate(['id' => $id], [
-            'title' => $request->title,
-            'short_title' => $request->short_title,
-            'short_description' => $request->short_description,
-            'long_description' => $request->long_description,
-            'about_image' => $pathName,
+        MultiImages::updateOrCreate(['id' => $id], [
+            'multi_image' => $pathName,
         ]);
 
         $notification = array(
-            'message' => 'Updated About Successfully',
+            'message' => "Updated About's Image Successfully",
             'alert-type' => 'success'
         );
 

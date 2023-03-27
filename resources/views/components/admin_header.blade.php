@@ -22,3 +22,5 @@
 <!-- App toast-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+<!-- App magnific-->
+<link rel="stylesheet" href="{{ asset('backend/css/magnific-popup.css') }}">

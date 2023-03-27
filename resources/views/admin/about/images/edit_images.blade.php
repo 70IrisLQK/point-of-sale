@@ -13,45 +13,25 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('home-sliders.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('images.update', [$getImageById->id]) }}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="card-body">
-                            <h4 class="card-title">Add About</h4>
-                            <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="Title" name="title"
-                                        id="title">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Short Title</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="Short Title" name="short_title"
-                                        id="short-title">
-                                </div>
-                            </div>
+                            <h4 class="card-title">Update About's Image</h4>
                             <!-- end row -->
                             <div class="row mb-3">
-                                <label for="example-search-input" class="col-sm-2 col-form-label">Video Url</label>
+                                <label for="example-email-input" class="col-sm-2 col-form-label">About
+                                    Image</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" id="video-url" name="video_url"
-                                        placeholder="Video Url">
+                                    <input class="form-control" type="file" id="about-image" name="about_image">
                                 </div>
-                            </div>
-                            <!-- end row -->
-                            <div class="row mb-3">
-                                <label for="example-email-input" class="col-sm-2 col-form-label">Home
-                                    Slide Image</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="home-slide" name="home_slide">
-                                </div>
-
                             </div>
                             <div class="row mb-3">
                                 <label for="example-email-input" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img id="show-home-slide" src="{{ asset('assets/images/no_image.jpg') }}"
+                                    <img id="show-about-image"
+                                        src="{{ !empty($getImageById->multi_image) ? asset('upload/admin_images/' . $getImageById->multi_image) : asset('assets/images/no_image.jpg') }}"
                                         class="rounded avatar-lg">
                                 </div>
                             </div>
@@ -73,14 +53,15 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#home-slide').change(function(e) {
+            $('#about-image').change(function(e) {
                 e.preventDefault();
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    $('#show-home-slide').attr('src', e.target.result);
+                    $('#show-about-image').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(e.target.files['0']);
             })
         })
     </script>
+
 @endsection

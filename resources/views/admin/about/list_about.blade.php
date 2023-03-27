@@ -29,13 +29,7 @@
                         <h4 class="card-title">Management About</h4>
                         <div class="table-rep-plugin">
                             <div class="table-wrapper">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group focus-btn-group">
-                                        <a href="{{ route('about.create') }}">
-                                            <button type="button" class="btn btn-primary">Add About</button>
-                                        </a>
-                                    </div>
-                                </div>
+
                                 <div class="table-responsive" data-pattern="priority-columns">
                                     <table id="tech-companies-1" class="table focus-on">
                                         <thead>
@@ -90,24 +84,11 @@
                                                     <td data-org-colspan="1" data-priority="6"
                                                         data-columns="tech-companies-1-col-7"
                                                         class="dt-buttons btn-group flex-wrap">
-                                                        <a class="btn btn-outline-secondary btn-sm" title="Edit"
+                                                        <a class="btn btn-info" title="Edit"
                                                             href="{{ route('about.edit', [$about->id]) }}">
                                                             <i class="fas fa-pencil-alt"></i>
                                                         </a>
-                                                        <form method="POST" id="my_form"
-                                                            action="{{ route('about.destroy', [$about->id]) }}">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button type="submit" class="btn btn-outline-secondary btn-sm"
-                                                                title="Delete"
-                                                                onclick="return confirm('Are you sure you want to delete this item?');">
-                                                                <i class="fas fa-trash"></i>
-
-                                                            </button>
-                                                        </form>
-
                                                     </td>
-
                                                 </tr>
                                             @endforeach
                                         </tbody>

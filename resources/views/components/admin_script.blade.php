@@ -6,6 +6,7 @@
 <script src="{{ asset('backend/libs/metismenu/metisMenu.min.js') }}"></script>
 <script src="{{ asset('backend/libs/simplebar/simplebar.min.js') }}"></script>
 <script src="{{ asset('backend/libs/node-waves/waves.min.js') }}"></script>
+<script src="{{ asset('backend/js/jquery.magnific-popup.min.js') }}"></script>
 
 
 <!-- apexcharts -->
@@ -29,3 +30,4 @@
 <script src="{{ asset('backend/js/pages/form-editor.init.js') }}"></script>
 <!-- App js -->
 <script src="{{ asset('backend/js/app.js') }}"></script>
+<script src="{{ asset('backend/js/core.js') }}"></script>

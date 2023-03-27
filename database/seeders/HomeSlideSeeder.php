@@ -19,7 +19,7 @@ class HomeSlideSeeder extends Seeder
             'title' => 'I will give you Best Product in the shortest time.',
             'short_title' => 'I will give you Best Product in the shortest time.',
             'home_slide' => 'banner_img.png',
-            'video_url' => 'https://www.youtube.com/embed/XHOmBV4js_E',
+            'video_url' => 'https://www.youtube.com/watch?v=XHOmBV4js_E',
         ];
 
         HomeSlide::updateOrCreate($homeSliders);

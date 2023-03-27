@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\HomeSlide;
+use App\Models\MultiImages;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -14,6 +15,8 @@ class FrontendController extends Controller
 
         $about = About::latest('id')->first();
 
-        return view('frontend.index', compact('homeSlide', 'about'));
+        $images = MultiImages::latest('id')->get();
+
+        return view('frontend.index', compact('homeSlide', 'about', 'images'));
     }
 }

@@ -17,7 +17,7 @@ class HomeSlideController extends Controller
      */
     public function index()
     {
-        $listHomeSlides = HomeSlide::latest('id')->paginate();
+        $listHomeSlides = HomeSlide::latest('id')->get();
 
         return view('admin.home_slider.list_slider', compact('listHomeSlides'));
     }
@@ -29,7 +29,6 @@ class HomeSlideController extends Controller
      */
     public function create()
     {
-        return view('admin.home_slider.create_slider');
     }
 
     /**
@@ -40,33 +39,6 @@ class HomeSlideController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => ['required', 'max:255'],
-            'short_title' => ['required', 'max:255'],
-            'video_url' => ['required', 'max:255'],
-            'home_slide' => ['required', 'image', 'mimes:png,jpq,gif,jpeg'],
-        ]);
-
-        if ($request->file('home_slide')) {
-            $image = $request->file('home_slide');
-            $pathName = Str::uuid() . '.' . $image->getClientOriginalExtension();
-            $path = 'upload/admin_images/';
-            Image::make($image)->resize(636, 852)->save($path . $pathName);
-        }
-
-        HomeSlide::create([
-            'title' => $request->title,
-            'short_title' => $request->short_title,
-            'video_url' => $request->video_url,
-            'home_slide' => $pathName,
-        ]);
-
-        $notification = array(
-            'message' => 'Created Home Slide Successfully',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->back()->with($notification);
     }
 
     /**
@@ -139,13 +111,5 @@ class HomeSlideController extends Controller
      */
     public function destroy($id)
     {
-        HomeSlide::destroy($id);
-
-        $notification = array(
-            'message' => 'Deleted Home Slide Successfully',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->back()->with($notification);
     }
 }

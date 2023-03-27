@@ -33,17 +33,20 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('home-sliders.index') }}" class=" waves-effect">
+                    <a href="{{ route('home-sliders.index') }}" class="waves-effect">
                         <i class="fab fa-slideshare"></i>
                         <span>Home Slide Setup</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('about.index') }}" class=" waves-effect">
+                    <a href="{{ route('about.index') }}" class="has-arrow waves-effect">
                         <i class="fas fa-address-book"></i>
                         <span>About Setup</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('images.index') }}">Management About's Image</a></li>
+                    </ul>
                 </li>
 
                 {{-- <li>

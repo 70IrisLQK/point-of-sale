@@ -9,7 +9,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
 
-    @include('components.header')
+    @include('components.admin_header')
 </head>
 
 <body data-topbar="dark">
@@ -45,7 +45,7 @@
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
-    @include('components.script')
+    @include('components.admin_script')
 </body>
 
 </html>

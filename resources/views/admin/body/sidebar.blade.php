@@ -33,22 +33,29 @@
                 </li>
 
                 <li>
-                    <a href="calendar.html" class=" waves-effect">
-                        <i class="ri-calendar-2-line"></i>
-                        <span>Calendar</span>
+                    <a href="{{ route('home-sliders.index') }}" class=" waves-effect">
+                        <i class="fab fa-slideshare"></i>
+                        <span>Home Slide Setup</span>
                     </a>
                 </li>
 
                 <li>
+                    <a href="{{ route('about.index') }}" class=" waves-effect">
+                        <i class="fas fa-address-book"></i>
+                        <span>About Setup</span>
+                    </a>
+                </li>
+
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
-                        <span>Email</span>
+                        <i class="fa-brands fa-slideshare"></i>
+                        <span>Home Slide</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox.html">Inbox</a></li>
-                        <li><a href="email-read.html">Read Email</a></li>
+                        <li><a href="{{ route('home-sliders.index') }}">List Home Slide</a></li>
+                        <li><a href="{{ route('home-sliders.create') }}">Update Home Slide</a></li>
                     </ul>
-                </li>
+                </li> --}}
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontendController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('admin.index');
@@ -30,12 +29,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
 // All admin route
-Route::prefix('admin')->group(function () {
-    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
-    Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
-    Route::post('/edit-profile', [AdminController::class, 'editProfile'])->name('admin.edit-profile');
-    Route::get('/change-password', [AdminController::class, 'changePassword'])->name('admin.password');
-    Route::post('/update-password', [AdminController::class, 'updatePassword'])->name('admin.update-password');
-});
+require __DIR__ . '/admin.php';

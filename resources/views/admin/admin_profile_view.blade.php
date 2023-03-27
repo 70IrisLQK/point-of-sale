@@ -4,7 +4,6 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-
                     <form action="{{ route('admin.edit-profile') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
@@ -56,17 +55,17 @@
                 </div>
             </div>
         </div>
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#image').change(function(e) {
-                    e.preventDefault();
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#show-image').attr('src', e.target.result);
-                    }
-                    reader.readAsDataURL(e.target.files['0']);
-                })
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                e.preventDefault();
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#show-image').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
             })
-        </script>
-    @endsection
+        })
+    </script>
+@endsection

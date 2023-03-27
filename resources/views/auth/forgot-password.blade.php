@@ -9,7 +9,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
     <!-- App favicon -->
-    @include('components.header')
+    @include('components.admin_header')
 </head>
 
 <body class="auth-body-bg">
@@ -75,7 +75,7 @@
     <!-- end -->
 
     <!-- JAVASCRIPT -->
-    @include('components.script')
+    @include('components.admin_script')
 </body>
 
 </html>

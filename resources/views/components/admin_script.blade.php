@@ -25,6 +25,7 @@
 <script src="{{ asset('backend/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
 
 <script src="{{ asset('backend/js/pages/dashboard.init.js') }}"></script>
-
+<script src="{{ asset('backend/libs/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ asset('backend/js/pages/form-editor.init.js') }}"></script>
 <!-- App js -->
 <script src="{{ asset('backend/js/app.js') }}"></script>

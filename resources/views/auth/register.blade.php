@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
-    @include('components.header')
+    @include('components.admin_header')
 </head>
 
 <body class="auth-body-bg">
@@ -106,7 +106,7 @@
 
 
     <!-- JAVASCRIPT -->
-    @include('components.script')
+    @include('components.admin_script')
 
 </body>
 

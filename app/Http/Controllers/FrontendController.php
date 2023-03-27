@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\HomeSlide;
 use App\Models\MultiImages;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -17,6 +18,8 @@ class FrontendController extends Controller
 
         $images = MultiImages::latest('id')->get();
 
-        return view('frontend.index', compact('homeSlide', 'about', 'images'));
+        $portfolios = Portfolio::latest('id')->get();
+
+        return view('frontend.index', compact('homeSlide', 'about', 'images', 'portfolios'));
     }
 }

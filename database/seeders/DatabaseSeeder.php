@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             HomeSlideSeeder::class,
             AboutSeeder::class,
             MultiImagesSeeder::class,
+            PortfolioSeeder::class,
+            BlogCategorySeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

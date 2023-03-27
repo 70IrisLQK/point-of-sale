@@ -10,6 +10,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class MultiImagesController extends Controller
 {
+    public const PUBLIC_PATH = 'upload/admin_images/';
     /**
      * Display a listing of the resource.
      *
@@ -83,6 +84,12 @@ class MultiImagesController extends Controller
             $pathName = Str::uuid() . '.' . $image->getClientOriginalExtension();
             $path = 'upload/admin_images/';
             Image::make($image)->resize(171, 170)->save($path . $pathName);
+        }
+
+        $multiImages = MultiImages::where('id', $id)->first();
+        $imageExist = public_path(MultiImagesController::PUBLIC_PATH . $multiImages->multi_image);
+        if (file_exists($imageExist)) {
+            unlink($imageExist);
         }
 
         MultiImages::updateOrCreate(['id' => $id], [

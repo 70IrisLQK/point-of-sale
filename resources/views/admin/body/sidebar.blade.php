@@ -40,13 +40,34 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('about.index') }}" class="has-arrow waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="fas fa-address-book"></i>
                         <span>About Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('about.index') }}">Management About</a></li>
+                    </ul>
+                    <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('images.index') }}">Management About's Image</a></li>
                     </ul>
+                </li>
+                <li>
+                    <a href="{{ route('portfolios.index') }}" class="waves-effect">
+                        <i class="fas fa-user"></i>
+                        <span>Management Portfolio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('categories.index') }}" class="waves-effect">
+                        <i class="fas fa-book"></i>
+                        <span>Management Category</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('blogs.index') }}" class="waves-effect">
+                        <i class="fab fa-blogger"></i>
+                        <span>Management Blog</span>
+                    </a>
                 </li>
 
                 {{-- <li>

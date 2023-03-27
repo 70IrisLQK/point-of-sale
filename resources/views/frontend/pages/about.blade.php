@@ -1,104 +1,5 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Rasalina - Personal Portfolio HTML Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    @include('components.frontend_header')
-</head>
-
-<body>
-
-    <!-- preloader-start -->
-    <div id="preloader">
-        <div class="rasalina-spin-box"></div>
-    </div>
-    <!-- preloader-end -->
-
-    <!-- Scroll-top -->
-    <button class="scroll-top scroll-to-target" data-target="html">
-        <i class="fas fa-angle-up"></i>
-    </button>
-    <!-- Scroll-top-end-->
-
-    <!-- header-area -->
-    <header>
-        <div id="sticky-header" class="menu__area transparent-header">
-            <div class="container custom-container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="mobile__nav__toggler"><i class="fas fa-bars"></i></div>
-                        <div class="menu__wrap">
-                            <nav class="menu__nav">
-                                <div class="logo">
-                                    <a href="index.html" class="logo__black"><img src="assets/img/logo/logo_black.png"
-                                            alt=""></a>
-                                    <a href="index.html" class="logo__white"><img src="assets/img/logo/logo_white.png"
-                                            alt=""></a>
-                                </div>
-                                <div class="navbar__wrap main__menu d-none d-xl-flex">
-                                    <ul class="navigation">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li class="active"><a href="about.html">About</a></li>
-                                        <li><a href="services-details.html">Services</a></li>
-                                        <li class="menu-item-has-children"><a href="#">Portfolio</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="portfolio.html">Portfolio</a></li>
-                                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">Our Blog</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="blog.html">Our News</a></li>
-                                                <li><a href="blog-details.html">News Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">contact me</a></li>
-                                    </ul>
-                                </div>
-                                <div class="header__btn d-none d-md-block">
-                                    <a href="contact.html" class="btn">Contact me</a>
-                                </div>
-                            </nav>
-                        </div>
-                        <!-- Mobile Menu  -->
-                        <div class="mobile__menu">
-                            <nav class="menu__box">
-                                <div class="close__btn"><i class="fal fa-times"></i></div>
-                                <div class="nav-logo">
-                                    <a href="index.html" class="logo__black"><img src="assets/img/logo/logo_black.png"
-                                            alt=""></a>
-                                    <a href="index.html" class="logo__white"><img src="assets/img/logo/logo_white.png"
-                                            alt=""></a>
-                                </div>
-                                <div class="menu__outer">
-                                    <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-                                </div>
-                                <div class="social-links">
-                                    <ul class="clearfix">
-                                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-youtube"></span></a></li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                        <div class="menu__backdrop"></div>
-                        <!-- End Mobile Menu -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header-area-end -->
-
-    <!-- main-area -->
+@extends('frontend.pages.index')
+@section('page-content')
     <main>
 
         <!-- breadcrumb-area -->
@@ -169,19 +70,19 @@
                                         aria-selected="true">About</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="skills-tab" data-bs-toggle="tab"
-                                        data-bs-target="#skills" type="button" role="tab"
-                                        aria-controls="skills" aria-selected="false">Skills</button>
+                                    <button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills"
+                                        type="button" role="tab" aria-controls="skills"
+                                        aria-selected="false">Skills</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="awards-tab" data-bs-toggle="tab"
-                                        data-bs-target="#awards" type="button" role="tab"
-                                        aria-controls="awards" aria-selected="false">awards</button>
+                                    <button class="nav-link" id="awards-tab" data-bs-toggle="tab" data-bs-target="#awards"
+                                        type="button" role="tab" aria-controls="awards"
+                                        aria-selected="false">awards</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="education-tab" data-bs-toggle="tab"
-                                        data-bs-target="#education" type="button" role="tab"
-                                        aria-controls="education" aria-selected="false">education</button>
+                                        data-bs-target="#education" type="button" role="tab" aria-controls="education"
+                                        aria-selected="false">education</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
@@ -189,17 +90,16 @@
                                     aria-labelledby="about-tab">
                                     {{ $about->long_description }}
                                 </div>
-                                <div class="tab-pane fade" id="skills" role="tabpanel"
-                                    aria-labelledby="skills-tab">
+                                <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
                                     <div class="about__skill__wrap">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="about__skill__item">
                                                     <h5 class="title">Communication</h5>
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 70%;" aria-valuenow="70" aria-valuemin="0"
-                                                            aria-valuemax="100"><span class="percentage">70%</span>
+                                                        <div class="progress-bar" role="progressbar" style="width: 70%;"
+                                                            aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                                            <span class="percentage">70%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -208,9 +108,9 @@
                                                 <div class="about__skill__item">
                                                     <h5 class="title">Brain Storming</h5>
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
-                                                            aria-valuemax="100"><span class="percentage">90%</span>
+                                                        <div class="progress-bar" role="progressbar" style="width: 90%;"
+                                                            aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                                            <span class="percentage">90%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -219,9 +119,9 @@
                                                 <div class="about__skill__item">
                                                     <h5 class="title">Resourcefulness</h5>
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 50%;" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"><span class="percentage">50%</span>
+                                                        <div class="progress-bar" role="progressbar" style="width: 50%;"
+                                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                                            <span class="percentage">50%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -230,9 +130,9 @@
                                                 <div class="about__skill__item">
                                                     <h5 class="title">Figma</h5>
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 65%;" aria-valuenow="65" aria-valuemin="0"
-                                                            aria-valuemax="100"><span class="percentage">65%</span>
+                                                        <div class="progress-bar" role="progressbar" style="width: 65%;"
+                                                            aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                                                            <span class="percentage">65%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -241,9 +141,9 @@
                                                 <div class="about__skill__item">
                                                     <h5 class="title">Analytical Abilities</h5>
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
-                                                            aria-valuemax="100"><span class="percentage">80%</span>
+                                                        <div class="progress-bar" role="progressbar" style="width: 80%;"
+                                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                                            <span class="percentage">80%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -252,9 +152,9 @@
                                                 <div class="about__skill__item">
                                                     <h5 class="title">Skeatch</h5>
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 45%;" aria-valuenow="45" aria-valuemin="0"
-                                                            aria-valuemax="100"><span class="percentage">45%</span>
+                                                        <div class="progress-bar" role="progressbar" style="width: 45%;"
+                                                            aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+                                                            <span class="percentage">45%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -263,9 +163,9 @@
                                                 <div class="about__skill__item">
                                                     <h5 class="title">User Research</h5>
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 55%;" aria-valuenow="55" aria-valuemin="0"
-                                                            aria-valuemax="100"><span class="percentage">55%</span>
+                                                        <div class="progress-bar" role="progressbar" style="width: 55%;"
+                                                            aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                                                            <span class="percentage">55%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -274,9 +174,9 @@
                                                 <div class="about__skill__item">
                                                     <h5 class="title">Adobe Tools</h5>
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"><span class="percentage">85%</span>
+                                                        <div class="progress-bar" role="progressbar" style="width: 85%;"
+                                                            aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                                            <span class="percentage">85%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -284,8 +184,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="awards" role="tabpanel"
-                                    aria-labelledby="awards-tab">
+                                <div class="tab-pane fade" id="awards" role="tabpanel" aria-labelledby="awards-tab">
                                     <div class="about__award__wrap">
                                         <div class="row justify-content-center">
                                             <div class="col-md-6 col-sm-9">
@@ -690,78 +589,5 @@
             </div>
         </section>
         <!-- contact-area-end -->
-
     </main>
-    <!-- main-area-end -->
-
-
-
-    <!-- Footer-area -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-4">
-                    <div class="footer__widget">
-                        <div class="fw-title">
-                            <h5 class="sub-title">Contact us</h5>
-                            <h4 class="title">+81383 766 284</h4>
-                        </div>
-                        <div class="footer__widget__text">
-                            <p>There are many variations of passages of lorem ipsum
-                                available but the majority have suffered alteration
-                                in some form is also here.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6">
-                    <div class="footer__widget">
-                        <div class="fw-title">
-                            <h5 class="sub-title">my address</h5>
-                            <h4 class="title">AUSTRALIA</h4>
-                        </div>
-                        <div class="footer__widget__address">
-                            <p>Level 13, 2 Elizabeth Steereyt set <br> Melbourne, Victoria 3000</p>
-                            <a href="mailto:noreply@envato.com" class="mail">noreply@envato.com</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6">
-                    <div class="footer__widget">
-                        <div class="fw-title">
-                            <h5 class="sub-title">Follow me</h5>
-                            <h4 class="title">socially connect</h4>
-                        </div>
-                        <div class="footer__widget__social">
-                            <p>Lorem ipsum dolor sit amet enim. <br> Etiam ullamcorper.</p>
-                            <ul class="footer__social__list">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright__wrap">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="copyright__text text-center">
-                            <p>Copyright @ Theme_Pure 2021 All right Reserved</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer-area-end -->
-
-
-
-
-    <!-- JS here -->
-    @include('components.frontend_script')
-</body>
-
-</html>
+@endsection

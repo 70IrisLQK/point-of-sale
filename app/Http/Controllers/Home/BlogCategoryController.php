@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
-use App\Models\HomeSlide;
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Intervention\Image\ImageManagerStatic as Image;
 
-class HomeSlideController extends Controller
+class BlogCategoryController extends Controller
 {
-    public const PUBLIC_PATH = 'upload/admin_images/';
-
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +16,8 @@ class HomeSlideController extends Controller
      */
     public function index()
     {
-        $listHomeSlides = HomeSlide::latest('id')->get();
-
-        return view('admin.home_slider.list_slider', compact('listHomeSlides'));
+        $listCategories = BlogCategory::latest('id')->get();
+        return view('admin.category.list_category', compact('listCategories'));
     }
 
     /**
@@ -31,6 +27,7 @@ class HomeSlideController extends Controller
      */
     public function create()
     {
+        return view('admin.category.create_category');
     }
 
     /**
@@ -41,6 +38,20 @@ class HomeSlideController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => ['required', 'max:255'],
+        ]);
+        BlogCategory::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
+
+        $notification = array(
+            'message' => 'Created Blog Category Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 
     /**
@@ -51,7 +62,6 @@ class HomeSlideController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -62,9 +72,8 @@ class HomeSlideController extends Controller
      */
     public function edit($id)
     {
-        $getSlideById = HomeSlide::where('id', $id)->first();
-
-        return view('admin.home_slider.edit_slider', compact('getSlideById'));
+        $getCategoryById = BlogCategory::find($id);
+        return view('admin.category.edit_category', compact('getCategoryById'));
     }
 
     /**
@@ -77,33 +86,15 @@ class HomeSlideController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => ['required', 'max:255'],
-            'short_title' => ['required', 'max:255'],
-            'video_url' => ['required', 'max:255'],
-            'home_slide' => ['required', 'image', 'mimes:png,jpq,gif,jpeg'],
+            'name' => ['required', 'max:255'],
         ]);
-
-        if ($request->file('home_slide')) {
-            $image = $request->file('home_slide');
-            $pathName = Str::uuid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(636, 852)->save(HomeSlideController::PUBLIC_PATH . $pathName);
-        }
-
-        $homeSlide = HomeSlide::where('id', $id)->first();
-        $imageExist = public_path(HomeSlideController::PUBLIC_PATH . $homeSlide->home_slide);
-        if (file_exists($imageExist)) {
-            unlink($imageExist);
-        }
-
-        HomeSlide::updateOrCreate(['id' => $id], [
-            'title' => $request->title,
-            'short_title' => $request->short_title,
-            'video_url' => $request->video_url,
-            'home_slide' => $pathName,
+        BlogCategory::updateOrCreate(['id' => $id], [
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
         ]);
 
         $notification = array(
-            'message' => 'Updated Home Slide Successfully',
+            'message' => 'Updated Blog Category Successfully',
             'alert-type' => 'success'
         );
 
@@ -118,5 +109,13 @@ class HomeSlideController extends Controller
      */
     public function destroy($id)
     {
+        BlogCategory::destroy($id);
+
+        $notification = array(
+            'message' => 'Deleted Blog Category Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 }

@@ -11,6 +11,14 @@
 
     @include('components.admin_header')
 </head>
+<style type="text/css">
+    .bootstrap-tagsinput .tag {
+        margin-right: 2px;
+        color: white !important;
+        background-color: #0d6efd;
+        padding: 0.2rem;
+    }
+</style>
 
 <body data-topbar="dark">
     <!-- Begin page -->

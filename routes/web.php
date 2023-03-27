@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -31,3 +30,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 // All admin route
 require __DIR__ . '/admin.php';
+// All admin frontend
+require __DIR__ . '/frontend.php';

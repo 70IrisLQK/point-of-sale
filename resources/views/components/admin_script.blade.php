@@ -31,3 +31,5 @@
 <!-- App js -->
 <script src="{{ asset('backend/js/app.js') }}"></script>
 <script src="{{ asset('backend/js/core.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>

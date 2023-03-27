@@ -10,6 +10,8 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class AboutController extends Controller
 {
+    public const PUBLIC_PATH = 'upload/admin_images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -88,6 +90,12 @@ class AboutController extends Controller
             Image::make($image)->resize(523, 605)->save($path . $pathName);
         }
 
+        $about = About::where('id', $id)->first();
+        $imageExist = public_path(AboutController::PUBLIC_PATH . $about->about_image);
+        if (file_exists($imageExist)) {
+            unlink($imageExist);
+        }
+
         About::updateOrCreate(['id' => $id], [
             'title' => $request->title,
             'short_title' => $request->short_title,
@@ -112,5 +120,12 @@ class AboutController extends Controller
      */
     public function destroy($id)
     {
+    }
+
+    public function about()
+    {
+        $about = About::latest('id')->first();
+
+        return view('frontend.pages.about', $about);
     }
 }

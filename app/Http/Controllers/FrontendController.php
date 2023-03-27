@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Blog;
+use App\Models\Footer;
 use App\Models\HomeSlide;
 use App\Models\MultiImages;
 use App\Models\Portfolio;
@@ -20,6 +22,17 @@ class FrontendController extends Controller
 
         $portfolios = Portfolio::latest('id')->get();
 
-        return view('frontend.index', compact('homeSlide', 'about', 'images', 'portfolios'));
+        $blogs = Blog::with('blogCategory')->latest('id')->take(3)->get();
+
+        $footer = Footer::first();
+
+        return view('frontend.index', compact(
+            'homeSlide',
+            'about',
+            'images',
+            'portfolios',
+            'blogs',
+            'footer'
+        ));
     }
 }

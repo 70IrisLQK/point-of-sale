@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             MultiImagesSeeder::class,
             PortfolioSeeder::class,
             BlogCategorySeeder::class,
+            FooterSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

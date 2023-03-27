@@ -3,7 +3,6 @@
     <div data-simplebar class="h-100">
         @php
             $userId = Auth::user()->id;
-            
             $getAdminById = App\Models\User::find($userId);
         @endphp
         <!-- User details -->
@@ -67,6 +66,12 @@
                     <a href="{{ route('blogs.index') }}" class="waves-effect">
                         <i class="fab fa-blogger"></i>
                         <span>Management Blog</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('footers.index') }}" class="waves-effect">
+                        <i class="fas fa-pager"></i>
+                        <span>Management Footer</span>
                     </a>
                 </li>
 

@@ -86,8 +86,7 @@ class AboutController extends Controller
         if ($request->file('about_image')) {
             $image = $request->file('about_image');
             $pathName = Str::uuid() . '.' . $image->getClientOriginalExtension();
-            $path = 'upload/admin_images/';
-            Image::make($image)->resize(523, 605)->save($path . $pathName);
+            Image::make($image)->resize(523, 605)->save(AboutController::PUBLIC_PATH . $pathName);
         }
 
         $about = About::where('id', $id)->first();

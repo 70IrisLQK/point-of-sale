@@ -78,7 +78,7 @@ class PortfolioController extends Controller
     public function show($id)
     {
         $getPortfolioById  = Portfolio::find($id);
-        return view('frontend.pages.portfolio-details', compact('getPortfolioById'));
+        return view('frontend.pages.portfolio_details', compact('getPortfolioById'));
     }
 
     /**

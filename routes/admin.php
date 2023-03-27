@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\BlogCategoryController;
+use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\HomeSlideController;
 use App\Http\Controllers\Home\MultiImagesController;
 use App\Http\Controllers\Home\PortfolioController;
@@ -33,4 +34,7 @@ Route::prefix('admin')->middleware('auth', 'verified')->group(function () {
 
   // Blog route
   Route::resource('blogs', BlogController::class);
+
+  // Footer route
+  Route::resource('footers', FooterController::class);
 });

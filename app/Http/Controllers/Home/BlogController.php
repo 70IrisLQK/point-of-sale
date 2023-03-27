@@ -53,7 +53,7 @@ class BlogController extends Controller
         if ($request->file('blog_image')) {
             $image = $request->file('blog_image');
             $pathName = Str::uuid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(523, 605)->save(BlogController::PUBLIC_PATH . $pathName);
+            Image::make($image)->resize(430, 327)->save(BlogController::PUBLIC_PATH . $pathName);
         }
         Blog::create([
             'title' => $request->title,
@@ -79,6 +79,10 @@ class BlogController extends Controller
      */
     public function show($id)
     {
+        $getBlogById = Blog::find($id);
+        $getBlogRecent = Blog::latest()->take(5)->get();
+        $getCategories = BlogCategory::with('blogs')->latest()->take(8)->get();
+        return view('frontend.pages.blog_detail', compact('getBlogById', 'getBlogRecent', 'getCategories'));
     }
 
     /**
@@ -115,7 +119,7 @@ class BlogController extends Controller
         if ($request->file('blog_image')) {
             $image = $request->file('blog_image');
             $pathName = Str::uuid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(523, 605)->save(BlogController::PUBLIC_PATH . $pathName);
+            Image::make($image)->resize(430, 327)->save(BlogController::PUBLIC_PATH . $pathName);
         }
 
         $blog = Blog::where('id', $id)->first();
